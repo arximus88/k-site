@@ -14,6 +14,11 @@ bun run dev
 npm run dev -- --open
 ```
 
+## DB
+Run Pocketbase Server:
+```bash
+./pocketbase serve
+```
 ## Building
 
 To create a production version of your app:
