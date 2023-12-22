@@ -29,7 +29,7 @@
 		{#if iconType === 'emoji'}
 			<span class="icon">{icon}</span>
 		{:else}
-			<Icons name={icon} class="icon" />
+			<Icons name={icon} className="icon" />
 		{/if}
 	{/if}
 	<slot />
