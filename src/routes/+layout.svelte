@@ -1,33 +1,17 @@
 <script>
-	import { onMount } from 'svelte';
-	import '$lib/styles.css';
 	import Header from '$lib/components/Header.svelte';
-	import Navbar from '$lib/components/Navbar.svelte';
-	import VideoBackground from '$lib/components/Video-background.svelte';
-	import { dev } from '$app/environment';
-
-	onMount(() => {
-		if ('serviceWorker' in navigator) {
-			addEventListener('load', function () {
-				navigator.serviceWorker.register('$lib/scripts/service-worker.js', {
-					type: dev ? 'module' : 'classic'
-				});
-			});
-		}
-	});
-
+	import '$lib/styles.css';
 </script>
 
 <div class="app">
 	<Header />
-	<VideoBackground />
+
 	<main>
 		<slot />
 	</main>
 
-	<Navbar />
 	<footer>
-		<p>Personal website <a href="https://kharchenko.work">kharchenko.work</a> 2023</p>
+		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
 	</footer>
 </div>
 
@@ -43,16 +27,14 @@
 		display: flex;
 		flex-direction: column;
 		padding: 1rem;
-		padding-top: 32px;
-		padding-bottom: 128px;
 		width: 100%;
-		max-width: 1280px;
+		max-width: 64rem;
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
 
 	footer {
-		display: none;
+		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
