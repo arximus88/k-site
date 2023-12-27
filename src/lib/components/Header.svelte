@@ -60,7 +60,7 @@
 		--background: rgba(255, 255, 255, 0.7);
 	}
 
-	svg {
+	/* svg {
 		width: 2em;
 		height: 3em;
 		display: block;
@@ -68,7 +68,7 @@
 
 	path {
 		fill: var(--background);
-	}
+	} */
 
 	ul {
 		position: relative;
