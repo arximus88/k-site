@@ -1,7 +1,7 @@
 :root {
 	--font-body: 'Urbanist', sans-serif;
 	--font-mono: monospace;
-	--body-bg-color: #191b1d;
+	--body-bg-color: #131313;
 	--body-bg-shade: rgba(30, 30, 30, 0.36);
 	--card-bg: #1e1e1e;
 	--primary-basic: #ffffff;
@@ -74,7 +74,6 @@ p {
 }
 
 /* Typography Desktop */
-/* H1: used for main headings */
 h1,
 .h1 {
 	font-size: 48px;
@@ -82,7 +81,6 @@ h1,
 	margin: 0px;
 }
 
-/* H2: used for subheadings */
 h2,
 .h2 {
 	font-size: 32px;
@@ -90,7 +88,6 @@ h2,
 	margin: 0px;
 }
 
-/* H3: used for section headings */
 h3,
 .h3 {
 	font-size: 24px;
@@ -98,10 +95,16 @@ h3,
 	margin: 0px;
 }
 
-/* H4: used for sub-section headings */
 h4,
 .h4 {
 	font-size: 18px;
+	font-weight: bold;
+	margin: 0px;
+}
+
+h4,
+.h4 {
+	font-size: 14px;
 	font-weight: bold;
 	margin: 0px;
 }
@@ -179,7 +182,6 @@ a {
 
 /* Mobile */
 @media (max-width: 576px) {
-	/* H1: used for main headings */
 	h1,
 	.h1 {
 		font-size: 32px;
@@ -187,7 +189,6 @@ a {
 		margin: 0px;
 	}
 
-	/* H2: used for subheadings */
 	h2,
 	.h2 {
 		font-size: 24px;
@@ -195,7 +196,6 @@ a {
 		margin: 0px;
 	}
 
-	/* H3: used for section headings */
 	h3,
 	.h3 {
 		font-size: 18px;
@@ -203,7 +203,6 @@ a {
 		margin: 0px;
 	}
 
-	/* H4: used for sub-section headings */
 	h4,
 	.h4 {
 		font-size: 14px;

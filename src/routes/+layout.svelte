@@ -33,7 +33,7 @@
 		margin: 0 auto;
 		box-sizing: border-box;
 		border-radius: 24px;
-		background-color: #111111;
+		background-color: #000000;
 	}
 
 	footer {

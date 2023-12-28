@@ -2,6 +2,7 @@
 	import Counter from '$lib/components/Counter.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import Shortcut from '$lib/components/Shortcut.svelte';
 </script>
 
 <svelte:head>
@@ -26,6 +27,10 @@
 	</h2>
 
 	<Counter />
+	<div>
+		<Shortcut />
+	</div>
+	
 </section>
 
 <style>
