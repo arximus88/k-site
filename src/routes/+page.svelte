@@ -1,64 +1,46 @@
+<!-- src/routes/HomeScreen.svelte -->
 <script>
-	import Counter from '$lib/components/Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
-	import Shortcut from '$lib/components/Shortcut.svelte';
+	import ClockWidget from '$lib/components/ClockWidget.svelte';
+	import AppShortcut from '$lib/components/AppShortcut.svelte';
+	import Folder from '$lib/components/Folder.svelte';
 </script>
 
-<svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
-</svelte:head>
+<div class="home-screen">
+	<ClockWidget />
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
-	<div>
-		<Shortcut />
+	<div class="cards">
+		<div class="card bio">Bio</div>
+		<div class="card contact">Contact Me</div>
 	</div>
-	
-</section>
+
+	<div class="app-grid">
+		<AppShortcut icon="app_books" title="Portfolio" />
+	</div>
+</div>
 
 <style>
-	section {
+	.home-screen {
+		background: var(--body-bg-color);
+		padding: 20px;
+	}
+
+	.cards {
 		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
+		justify-content: space-between;
 	}
 
-	h1 {
-		width: 100%;
+	.card {
+		flex-basis: calc(50% - 10px); /* Adjust the spacing between cards */
+		background: var(--card-bg);
+		border-radius: 10px;
+		padding: 20px;
+		margin-bottom: 20px;
+		color: var(--primary-basic);
 	}
 
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
+	.app-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr); /* 4 items in a row */
+		gap: 10px; /* Adjust the gap between items */
 	}
 </style>

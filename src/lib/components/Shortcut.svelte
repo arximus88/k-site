@@ -1,12 +1,34 @@
+<!-- src/lib/components/AppShortcut.svelte -->
 <script>
-</script>
-
-<div class="backg"></div>
-
-<style>
-	.backg {
-		border-radius: 16px;
-		background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%),
-			rgba(255, 255, 255, 0.32);
+	export let icon; // path to the icon image
+	export let title; // text title for the shortcut
+  </script>
+  
+  <div class="app-shortcut">
+	<div class="icon" style="background-image: url({icon});"></div>
+	<div class="title">{title}</div>
+  </div>
+  
+  <style>
+	.app-shortcut {
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  width: 64px;
+	  margin: 8px; /* Adjust margin for spacing */
 	}
-</style>
+  
+	.icon {
+	  width: 32px;
+	  height: 32px;
+	  background-size: cover;
+	  margin-bottom: 4px; /* Adjust margin for spacing between icon and title */
+	}
+  
+	.title {
+	  font-size: 12px; /* Adjust font size for title */
+	  text-align: center;
+	  color: var(--primary-basic);
+	}
+  </style>
+  
