@@ -26,7 +26,7 @@
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-		padding: 1rem;
+		padding: 24px;
 		width: 100%;
 		max-width: 360px;
 		max-height: 800px;

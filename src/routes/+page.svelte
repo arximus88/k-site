@@ -1,4 +1,4 @@
-<!-- src/routes/HomeScreen.svelte -->
+<!-- HomeScreen -->
 <script>
 	import ClockWidget from '$lib/components/ClockWidget.svelte';
 	import AppShortcut from '$lib/components/AppShortcut.svelte';
@@ -7,40 +7,29 @@
 
 <div class="home-screen">
 	<ClockWidget />
-
-	<div class="cards">
-		<div class="card bio">Bio</div>
-		<div class="card contact">Contact Me</div>
-	</div>
-
-	<div class="app-grid">
-		<AppShortcut icon="app_books" title="Portfolio" />
-	</div>
+	<div class="card bio">Bio</div>
+	<div class="card contact">Contact Me</div>
+	<AppShortcut icon="app_books" title="Portfolio" />
+	<Folder title="Tools" />
+	<AppShortcut icon="app_cats" title="Cats" />
+	<AppShortcut icon="app_fortune" title="Fortuner" />
+	<AppShortcut icon="app_settings" title="Settings" />
 </div>
 
 <style>
 	.home-screen {
-		background: var(--body-bg-color);
-		padding: 20px;
-	}
-
-	.cards {
-		display: flex;
-		justify-content: space-between;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr); /* 4 items in a row */
+		gap: 20px;
 	}
 
 	.card {
-		flex-basis: calc(50% - 10px); /* Adjust the spacing between cards */
+		flex: 1;
 		background: var(--card-bg);
-		border-radius: 10px;
+		border-radius: 16px;
 		padding: 20px;
-		margin-bottom: 20px;
 		color: var(--primary-basic);
-	}
-
-	.app-grid {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr); /* 4 items in a row */
-		gap: 10px; /* Adjust the gap between items */
+		grid-column: span 2;
+		aspect-ratio: 1 / 0.6;
 	}
 </style>
