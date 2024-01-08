@@ -1,1 +1,0 @@
-import Pocketbase from 'pocketbase';
