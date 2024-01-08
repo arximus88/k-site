@@ -2,6 +2,7 @@
 node_modules
 /web/node_modules
 /web/.svelte-kit
+/web/.storybook
 /backend/pb_data
 /build
 /.svelte-kit

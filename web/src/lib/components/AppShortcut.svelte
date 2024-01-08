@@ -6,12 +6,16 @@
 </script>
 
 <div class="app-shortcut">
-	<AppIcons {icon} />
-	<div class="title">{title}</div>
+	<a href={title.toLowerCase()}>
+		<AppIcons {icon} />
+		<div class="title">{title}</div>
+	</a>
 </div>
 
 <style>
-
+	a {
+		text-decoration: none;
+	}
 	.title {
 		margin-top: 8px;
 		font-size: 12px; /* Adjust font size for title */

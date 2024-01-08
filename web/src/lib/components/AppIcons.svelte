@@ -25,4 +25,7 @@
 		background-color: var(--slight-basic);
 		border-radius: 16px;
 	}
+	.app-background:hover {
+		background-color: var(--caption-basic);
+	}
 </style>

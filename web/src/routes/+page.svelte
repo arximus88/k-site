@@ -14,6 +14,7 @@
 	<AppShortcut icon="app_cats" title="Cats" />
 	<AppShortcut icon="app_fortune" title="Fortuner" />
 	<AppShortcut icon="app_settings" title="Settings" />
+	<AppShortcut icon="app_auth" title="Auth" />
 </div>
 
 <style>
