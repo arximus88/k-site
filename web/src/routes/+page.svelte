@@ -5,6 +5,11 @@
 	import Folder from '$lib/components/Folder.svelte';
 </script>
 
+<svelte:head>
+	<title>Borys's Place</title>
+	<meta name="description" content="It's a Borys's website" />
+</svelte:head>
+
 <div class="home-screen">
 	<ClockWidget />
 	<div class="card bio">Bio</div>

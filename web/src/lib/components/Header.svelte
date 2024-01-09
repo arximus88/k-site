@@ -1,7 +1,9 @@
 <script>
 	import { page } from '$app/stores';
+	import { applyAction, enhance } from '$app/forms';
 	import logo from '$lib/images/svelte-logo.svg';
-	import github from '$lib/images/github.svg';
+	import { currentUser } from '$lib/pocketbase';
+	import { pb } from '$lib/pocketbase';
 </script>
 
 <header>
@@ -23,9 +25,19 @@
 	</nav> -->
 
 	<div class="corner">
-		<a href="https://github.com/arximus88">
-			<img src={github} alt="GitHub" />
-		</a>
+		{#if $currentUser}
+			<form action="/logout" method="POST" use:enhance={() => {
+				return async ({ result }) => {
+					pb.authStore.clear();
+					await applyAction(result);
+				}
+			}}
+			>
+				<button type="submit">Log Out</button>
+			</form>
+		{:else}
+			<a href="/auth/login">Authenticate</a>
+		{/if}
 	</div>
 </header>
 
@@ -63,7 +75,6 @@
 	path {
 		fill: var(--background);
 	} */
-
 
 	a:hover {
 		color: var(--color-theme-1);
