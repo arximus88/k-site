@@ -15,12 +15,18 @@
 	<div class="card bio">Bio</div>
 	<div class="card contact">Contact Me</div>
 	<AppShortcut icon="app_books" title="Portfolio" />
-	<Folder title="Tools" />
+	<Folder title="Tools">
+		<AppShortcut title="App 1" />
+		<AppShortcut title="App 2" />
+		<AppShortcut title="App 3" />
+		<AppShortcut title="App 4" />
+	</Folder>
 	<AppShortcut icon="app_cats" title="Cats" />
 	<AppShortcut icon="app_fortune" title="Fortuner" />
 	<AppShortcut icon="app_settings" title="Settings" />
 	<AppShortcut icon="app_auth" title="Auth" />
 	<AppShortcut icon="app_crud" title="CRUD" />
+	<AppShortcut mini=true title="App 4" />
 </div>
 
 <style>

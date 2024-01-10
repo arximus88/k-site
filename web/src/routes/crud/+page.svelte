@@ -3,10 +3,10 @@
 </script>
 
 <div class="grid">
-	<AppShortcut title="Create" />
-	<AppShortcut title="Read" />
-	<AppShortcut title="Update" />
-	<AppShortcut title="Delete" />
+	<AppShortcut title="Create" link="/crud/create" />
+	<AppShortcut title="Read" link="/crud/read" />
+	<AppShortcut title="Update" link="/crud/update" />
+	<AppShortcut title="Delete" link="/crud/delete" />
 </div>
 
 <style>

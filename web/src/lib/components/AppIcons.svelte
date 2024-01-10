@@ -1,5 +1,6 @@
 <script lang="ts">
-	export let icon = '';
+	let defaultIcon = `default_0${Math.floor(Math.random() * 9) + 1}`; // generates a random number between 1 and 12
+	export let icon = defaultIcon;
 	export let size = 24;
 </script>
 
