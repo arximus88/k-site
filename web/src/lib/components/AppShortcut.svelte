@@ -1,10 +1,14 @@
 <!-- src/lib/components/AppShortcut.svelte -->
 <script>
-	import { getContext } from 'svelte';
-	const isFolderOpen = getContext('isFolderOpen');
+    import { getContext } from 'svelte';
+    import { writable } from 'svelte/store';
+    const isFolderOpen = getContext('isFolderOpen') || writable(false);
+    let mini;
+    isFolderOpen.subscribe((value) => {
+        mini = value;
+    });
 	export let title; // text title for the shortcut
 	export let link; // custom link for the shortcut
-	export let mini = isFolderOpen; // whether to render the mini version
 	let defaultIcon = `default_0${Math.floor(Math.random() * 9) + 1}`; // generates a random number between 1 and 9
 	export let icon = defaultIcon;
 	export let size = mini ? 12 : 24; // smaller size for mini version

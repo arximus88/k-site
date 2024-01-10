@@ -26,12 +26,15 @@
 
 	<div class="corner">
 		{#if $currentUser}
-			<form action="/logout" method="POST" use:enhance={() => {
-				return async ({ result }) => {
-					pb.authStore.clear();
-					await applyAction(result);
-				}
-			}}
+			<form
+				action="/logout"
+				method="POST"
+				use:enhance={() => {
+					return async ({ result }) => {
+						pb.authStore.clear();
+						await applyAction(result);
+					};
+				}}
 			>
 				<button type="submit">Log Out</button>
 			</form>

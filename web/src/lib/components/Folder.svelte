@@ -1,29 +1,35 @@
 <!-- src/lib/components/Folder.svelte -->
 <script>
 	import { setContext, createEventDispatcher } from 'svelte';
+	import { writable } from 'svelte/store';
 	export let title; // text title for the folder
-	let isOpen = false;
+	let isOpen = writable(false);
 	const dispatch = createEventDispatcher();
 	function toggleFolder() {
-		isOpen = !isOpen;
+		isOpen.update((value) => !value);
 		dispatch('toggle', { isOpen });
 	}
-	setContext('isFolderOpen', () => isOpen);
+	setContext('isFolderOpen', isOpen);
 </script>
 
-<button class="folder-shortcut" on:click={toggleFolder}>
-	<div class="folder-preview">
-		<slot />
-	</div>
-	<div class="title">{title}</div>
-	{#if isOpen}
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+<div class="folder-shortcut" on:click={toggleFolder}>
+	<div class="folder-background">
 		<div class="folder-content">
 			<slot />
 		</div>
-	{/if}
-</button>
+	</div>
+	<div class="title">{title}</div>
+</div>
 
 <style>
+	.title {
+		margin-top: 8px;
+		font-size: 12px; /* Adjust font size for title */
+		text-align: center;
+		color: var(--primary-basic);
+	}
 	.folder-shortcut {
 		position: relative;
 		display: flex;
@@ -33,12 +39,21 @@
 		cursor: pointer;
 	}
 
-	.folder-preview {
+	.folder-content {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr); /* 4 items in a row */
+		gap: 2px;
+	}
+
+	.folder-background {
 		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		width: 100%;
+		align-items: center;
 		aspect-ratio: 1;
-		margin-bottom: 8px;
+		justify-content: center;
+		background-color: var(--slight-basic);
+		border-radius: 16px;
+	}
+	.folder-background:hover {
+		background-color: var(--caption-basic);
 	}
 </style>
