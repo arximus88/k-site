@@ -1,3 +1,4 @@
+<!-- +layout.svelte -->
 <script>
 	import Header from '$lib/components/Header.svelte';
 	import '$lib/styles.css';
@@ -44,9 +45,14 @@
 		padding: 12px;
 	}
 
-	@media (min-width: 480px) {
+	@media (max-width: 480px) {
 		footer {
-			padding: 12px 0;
+			display: none;
+		}
+
+		main {
+			height: 100vh;
+			border-radius: 0px;
 		}
 	}
 </style>

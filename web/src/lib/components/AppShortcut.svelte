@@ -1,28 +1,18 @@
 <!-- src/lib/components/AppShortcut.svelte -->
 <script>
-    import { getContext } from 'svelte';
-    import { writable } from 'svelte/store';
-    const isFolderOpen = getContext('isFolderOpen') || writable(false);
-    let mini;
-    isFolderOpen.subscribe((value) => {
-        mini = value;
-    });
+	let mini;
 	export let title; // text title for the shortcut
 	export let link; // custom link for the shortcut
 	let defaultIcon = `default_0${Math.floor(Math.random() * 9) + 1}`; // generates a random number between 1 and 9
 	export let icon = defaultIcon;
-	export let size = mini ? 12 : 24; // smaller size for mini version
 </script>
 
-<div class="app-shortcut" class:mini>
+<div class="app-shortcut">
 	<a href={mini ? null : link || title.toLowerCase()}>
 		<div class="app-background">
-			<span
-				class="app-icon"
-				style="width: {size}px; height: {size}px; background-image: url('/app-icons/{icon}.png');"
-			/>
+			<span class="app-icon" style="background-image: url('/app-icons/{icon}.png');" />
 		</div>
-		<div class="title">{title}</div>
+		<h5 class="title">{title}</h5>
 	</a>
 </div>
 
@@ -32,25 +22,31 @@
 	}
 	.title {
 		margin-top: 8px;
-		font-size: 12px; /* Adjust font size for title */
 		text-align: center;
 		color: var(--primary-basic);
 	}
-	.app-shortcut.mini .title {
-		display: none; /* Hide title in mini version */
-	}
-	.app-shortcut.mini .app-background {
-		background-color: none; /* Remove background color in mini version */
-	}
-	.app-shortcut.mini a {
-		cursor: default; /* Change cursor to default in mini version */
-		pointer-events: none; /* Disable pointer events in mini version */
-	}
+
 	.app-icon {
+		width: 24px;
+		height: 24px;
 		display: inline-block;
 		background-size: contain;
 		background-repeat: no-repeat;
 		background-position: center;
+	}
+	.folder-preview > .app-shortcut .title {
+		display: none; /* Hide title in mini version */
+	}
+	.folder-preview > .app-shortcut .app-background {
+		background-color: none; /* Remove background color in mini version */
+	}
+	.folder-preview > .app-shortcut a {
+		cursor: default; /* Change cursor to default in mini version */
+		pointer-events: none; /* Disable pointer events in mini version */
+	}
+	.folder-preview > .app-shortcut .app-icon {
+		width: 12px;
+		height: 12px;
 	}
 	.app-background {
 		display: flex;

@@ -1,48 +1,102 @@
 <!-- src/lib/components/Folder.svelte -->
 <script>
-	import { setContext, createEventDispatcher } from 'svelte';
 	import { writable } from 'svelte/store';
+	import { fade } from 'svelte/transition';
 	export let title; // text title for the folder
-	let isOpen = writable(false);
-	const dispatch = createEventDispatcher();
-	function toggleFolder() {
-		isOpen.update((value) => !value);
-		dispatch('toggle', { isOpen });
+	export const isFolderOpen = writable(false);
+
+	// Function to open the folder
+	function openFolder() {
+		isFolderOpen.set(true);
+		// Prevent scrolling on the body when the folder is open
+		document.body.style.overflow = 'hidden';
 	}
-	setContext('isFolderOpen', isOpen);
+
+	// Function to close the folder
+	function closeFolder() {
+		isFolderOpen.set(false);
+		// Allow scrolling on the body when the folder is closed
+		document.body.style.overflow = '';
+	}
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<div class="folder-shortcut" on:click={toggleFolder}>
+
+{#if $isFolderOpen}
+	<div
+		class="overlay"
+		on:click={closeFolder}
+		in:fade={{ delay: 0, duration: 200 }}
+		out:fade={{ delay: 0, duration: 200 }}
+	>
+		<div class="folder-opened" on:click|stopPropagation>
+			<h2 class="text-center">{title}</h2>
+			<div class="folder-content">
+				<slot />
+			</div>
+		</div>
+	</div>
+{/if}
+
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+
+<div class="folder-shortcut" on:click={openFolder}>
 	<div class="folder-background">
-		<div class="folder-content">
+		<div class="folder-preview">
 			<slot />
 		</div>
 	</div>
-	<div class="title">{title}</div>
+	<h5 class="title">{title}</h5>
 </div>
 
 <style>
-	.title {
-		margin-top: 8px;
-		font-size: 12px; /* Adjust font size for title */
-		text-align: center;
-		color: var(--primary-basic);
-	}
-	.folder-shortcut {
-		position: relative;
+	.overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.5); /* Dimmed background */
+		z-index: 100; /* High z-index to ensure it covers other content */
 		display: flex;
-		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		cursor: pointer;
+	}
+	.folder-opened {
+		background: rgb(43, 43, 43); /* Semi-transparent background */
+		border-radius: 16px;
+		padding: 24px;
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+		z-index: 101; /* Ensures it sits above the overlay */
+		overflow-y: auto; /* Allows scrolling within the folder if needed */
+		position: absolute;
+		left: -4px;
+		right: -4px;
+	}
+
+	.folder-preview {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr); /* 3 columns for app shortcuts */
+		gap: 2px;
 	}
 
 	.folder-content {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr); /* 4 items in a row */
-		gap: 2px;
+		gap: 20px;
+		padding: 0px;
+		margin-top: 16px;
+	}
+
+	.title {
+		margin-top: 8px;
+		text-align: center;
+		color: var(--primary-basic);
+	}
+	.folder-shortcut {
+		cursor: pointer;
 	}
 
 	.folder-background {

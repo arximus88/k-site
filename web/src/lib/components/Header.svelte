@@ -1,5 +1,4 @@
 <script>
-	import { page } from '$app/stores';
 	import { applyAction, enhance } from '$app/forms';
 	import logo from '$lib/images/svelte-logo.svg';
 	import { currentUser } from '$lib/pocketbase';
@@ -49,7 +48,12 @@
 		display: flex;
 		justify-content: space-between;
 	}
-
+	@media (max-width: 480px) {
+		header {
+		display: none;
+	}
+	}
+	
 	.corner {
 		width: 3em;
 		height: 3em;

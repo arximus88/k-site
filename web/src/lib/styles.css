@@ -77,30 +77,23 @@ p {
 	color: var(--slight-basic);
 }
 
-/* Typography Desktop */
+/* Typography */
 h1,
 .h1 {
-	font-size: 48px;
+	font-size: 32px;
 	font-weight: bold;
 	margin: 0px;
 }
 
 h2,
 .h2 {
-	font-size: 32px;
+	font-size: 24px;
 	font-weight: bold;
 	margin: 0px;
 }
 
 h3,
 .h3 {
-	font-size: 24px;
-	font-weight: bold;
-	margin: 0px;
-}
-
-h4,
-.h4 {
 	font-size: 18px;
 	font-weight: bold;
 	margin: 0px;
@@ -113,14 +106,25 @@ h4,
 	margin: 0px;
 }
 
+h5,
+.h5 {
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0px;
+}
+
 a {
 	color: var(--link-color);
 }
 
 .active-text {
-	font-size: 18px;
+	font-size: 14px;
 	font-weight: bold;
+	color: var(--tertiary-basic);
 	margin: 0px;
+}
+active-text:hover {
+	color: var(--primary-basic);
 }
 
 /* Large text: used for emphasis or call to action */
@@ -149,6 +153,14 @@ a {
 	color: var(--caption-basic);
 }
 
+.text-center {
+	text-align: center;
+}
+.wide {
+	display: block;
+	width: 100%;
+}
+
 .butt {
 	font-weight: 700;
 	text-transform: uppercase;
@@ -169,97 +181,13 @@ a {
 .project-description {
 	padding-bottom: 24px;
 }
+
 .project-slider {
-	background-color: transparent;
-	max-width: 640px;
-}
-
-@media (max-width: 1024px) {
-	.project-slider {
-		min-width: 320px;
-		max-width: calc(100% - -32px);
-		background: var(--slight-basic);
-		margin: 0px;
-		margin: 0px -16px;
-	}
-}
-
-/* Mobile */
-@media (max-width: 576px) {
-	h1,
-	.h1 {
-		font-size: 32px;
-		font-weight: bold;
-		margin: 0px;
-	}
-
-	h2,
-	.h2 {
-		font-size: 24px;
-		font-weight: bold;
-		margin: 0px;
-	}
-
-	h3,
-	.h3 {
-		font-size: 18px;
-		font-weight: bold;
-		margin: 0px;
-	}
-
-	h4,
-	.h4 {
-		font-size: 14px;
-		font-weight: bold;
-		margin: 0px;
-	}
-
-	.active-text {
-		font-size: 14px;
-		font-weight: bold;
-		color: var(--tertiary-basic);
-		margin: 0px;
-	}
-	active-text:hover {
-		color: var(--primary-basic);
-	}
-
-	/* Large text: used for emphasis or call to action */
-	.large-text {
-		font-size: 18px;
-		font-weight: normal;
-	}
-
-	/* Medium text: used for main body text */
-	.medium-text {
-		font-size: 16px;
-		font-weight: normal;
-		line-height: 1.5;
-	}
-
-	/* Small text: used for captions, labels, and smaller text */
-	.small-text {
-		font-size: 14px;
-		font-weight: normal;
-	}
-
-	.caption {
-		margin: 0px;
-		font-size: 14px;
-		font-weight: normal;
-		color: var(--caption-basic);
-	}
-
-	/* Footnote: used for fine print or footnotes */
-	.footnote {
-		font-size: 12px;
-		font-weight: normal;
-		color: var(--caption-basic);
-	}
-	.wide {
-		display: block;
-		width: 100%;
-	}
+	min-width: 320px;
+	max-width: calc(100% - -32px);
+	background: var(--slight-basic);
+	margin: 0px;
+	margin: 0px -16px;
 }
 
 page-container {
@@ -271,15 +199,6 @@ page-container {
 	grid-template-columns: 1fr 320px;
 	grid-gap: 2rem;
 	margin: 2rem 0;
-}
-
-@media (max-width: 1024px) {
-	.project-content {
-		display: flex;
-		flex-direction: column;
-		grid-template-columns: 1fr;
-		min-width: 288px;
-	}
 }
 
 pre {
