@@ -27,7 +27,7 @@
 	<AppShortcut icon="app_settings" title="Settings" />
 	<AppShortcut icon="app_auth" title="Auth" />
 	<AppShortcut icon="app_crud" title="CRUD" />
-	<AppShortcut mini="true" title="App 4" />
+	<AppShortcut title="Icons" />
 </div>
 
 <style>
@@ -36,6 +36,7 @@
 		display: grid;
 		grid-template-columns: repeat(4, 1fr); /* 4 items in a row */
 		gap: 20px;
+		padding: 24px;
 	}
 
 	.card {

@@ -27,7 +27,6 @@
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-		padding: 24px;
 		width: 100%;
 		max-width: 360px;
 		max-height: 800px;
@@ -35,6 +34,10 @@
 		box-sizing: border-box;
 		border-radius: 24px;
 		background-color: #000000;
+		overflow: hidden;
+		border-color: rgba(240, 248, 255, 0.256);
+		border-style: solid;
+		border-width: 2px;
 	}
 
 	footer {

@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	export let name = '';
 	export let size = 24;
 	export let className = '';

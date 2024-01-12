@@ -1,9 +1,4 @@
-<header>
-	<div>
-		<a href="/"> Back </a>
-	</div>
-	<h2>Authentication</h2>
-</header>
+<!-- auth/+layout.svelte -->
 
 <main>
 	<slot />

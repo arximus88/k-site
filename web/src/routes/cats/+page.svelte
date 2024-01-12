@@ -2,4 +2,4 @@
 	import AppHeader from '$lib/components/AppHeader.svelte';
 </script>
 
-<AppHeader title="Portfolio Viewer" backLink="/" />
+<AppHeader title="Cats Page" backLink="/" />
