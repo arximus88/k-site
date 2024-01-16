@@ -1,5 +1,6 @@
 <script>
 	import AppHeader from '$lib/components/AppHeader.svelte';
+	import Button from '$lib/components/Button.svelte';
 
 	let fortune = '';
 	const fortunes = [
@@ -20,26 +21,18 @@
 
 <div class="app-content">
 	<h2 class="text-center">{fortune}</h2>
-	<button on:click={tellFortune}>Tell me my fortune</button>
+	<Button width="block" on:click={tellFortune}>Tell me my fortune</Button>
 </div>
 
 <style>
-	button {
-		background-color: #f1f1f1;
-		border: 1px solid #ccc;
-		border-radius: 12px;
-		color: #333;
-		cursor: pointer;
-		font-size: 16px;
-		padding: 10px 20px;
-	}
+
 	.app-content {
 		padding: 24px;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		gap: 20px;
-		height: 100%; /* take up full height of parent */
+		height: calc(100% - 50px);
 		flex-grow: 1;
 	}
 	h2 {

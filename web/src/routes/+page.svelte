@@ -20,7 +20,7 @@
 		<AppShortcut icon="default_01" title="App 2" />
 		<AppShortcut icon="default_02" title="App 3" />
 		<AppShortcut icon="default_06" title="App 4" />
-		<AppShortcut title="App 5" />
+		<AppShortcut icon="default_07" title="App 5" />
 	</Folder>
 	<AppShortcut icon="app_cats" title="Cats" />
 	<AppShortcut icon="app_fortune" title="Fortuner" />
@@ -37,6 +37,8 @@
 		grid-template-columns: repeat(4, 1fr); /* 4 items in a row */
 		gap: 20px;
 		padding: 24px;
+		align-content: start;
+		height: 100%;
 	}
 
 	.card {

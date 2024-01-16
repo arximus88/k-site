@@ -3,18 +3,18 @@
 	import { currentUser } from '$lib/pocketbase';
 	import { pb } from '$lib/pocketbase';
 	import { applyAction, enhance } from '$app/forms';
-	import AppHeader from '$lib/components/AppHeader.svelte';
+	import Button from '$lib/components/Button.svelte';
 </script>
 
-<AppHeader title="Authentication" backLink="/" secondaryIcon="/path/to/icon.png" />
+
 <div class="app-content">
 	{#if $currentUser}
-			<span class="medium-text text-secondary text-center"> Logged in as: {$currentUser.email}</span>
-			<img
-				class="user-avatar"
-				src={`http://127.0.0.1:8090/api/files/_pb_users_auth_/${$currentUser.id}/${$currentUser.avatar}`}
-				alt="user-avatar"
-			/>
+		<span class="medium-text text-secondary text-center"> Logged in as: {$currentUser.email}</span>
+		<img
+			class="user-avatar"
+			src={`http://127.0.0.1:8090/api/files/_pb_users_auth_/${$currentUser.id}/${$currentUser.avatar}`}
+			alt="user-avatar"
+		/>
 		<form
 			action="/logout"
 			method="POST"
@@ -25,10 +25,10 @@
 				};
 			}}
 		>
-			<button type="submit">Log Out</button>
+			<Button width="block" type="submit">Log Out</Button>
 		</form>
 	{:else}
-		<a href="/auth/login">Authenticate</a>
+		<Button width="block" href="/auth/login">Authenticate</Button>
 	{/if}
 </div>
 

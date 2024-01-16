@@ -19,12 +19,17 @@
         background-color: rgba(240, 248, 255, 0.12);
 	}
 	.back-button {
-		/* Style the back button */
+		display: block;
+	}
+	a {
+		text-decoration: none;
+		color: var(--primary-basic);
+		font-size: 1.5rem;
 	}
 	.app-title {
 		text-align: center;
 	}
 	.secondary-icon {
-		/* Style the secondary icon */
+		display: block;
 	}
 </style>

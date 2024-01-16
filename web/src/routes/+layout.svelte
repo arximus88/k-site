@@ -24,12 +24,9 @@
 	}
 
 	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
+		height: clamp(640px, calc(100vh - 80px), 800px);
 		width: 100%;
 		max-width: 360px;
-		max-height: 800px;
 		margin: 0 auto;
 		box-sizing: border-box;
 		border-radius: 24px;
