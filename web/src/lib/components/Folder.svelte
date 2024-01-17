@@ -1,7 +1,7 @@
 <!-- src/lib/components/Folder.svelte -->
 <script>
 	import { writable } from 'svelte/store';
-	import { fade } from 'svelte/transition';
+	import { scale } from 'svelte/transition';
 	export let title; // text title for the folder
 	export const isFolderOpen = writable(false);
 
@@ -27,8 +27,8 @@
 	<div
 		class="overlay"
 		on:click={closeFolder}
-		in:fade={{ delay: 0, duration: 200 }}
-		out:fade={{ delay: 0, duration: 200 }}
+		in:scale={{ delay: 0, duration: 200, opacity: 0, start: 0.9 }}
+		out:scale={{ delay: 0, duration: 200, opacity: 0, start: 0.9 }}
 	>
 		<div class="folder-opened" on:click|stopPropagation>
 			<h2 class="text-center">{title}</h2>
@@ -42,7 +42,10 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 
-<div class="folder-shortcut" on:click={openFolder}>
+<div
+	class="folder-shortcut"
+	on:click={openFolder}
+>
 	<div class="folder-background">
 		<div class="folder-preview">
 			<slot />
@@ -72,8 +75,8 @@
 		z-index: 101; /* Ensures it sits above the overlay */
 		overflow-y: auto; /* Allows scrolling within the folder if needed */
 		position: absolute;
-		left: -4px;
-		right: -4px;
+		left: 12px;
+		right: 12px;
 	}
 
 	.folder-preview {

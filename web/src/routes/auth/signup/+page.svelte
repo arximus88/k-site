@@ -7,6 +7,7 @@
 	let password = '';
 	let passwordConfirm = '';
 	let disabled = true;
+	export let form;
 
 	// This code runs whenever any of the fields change
 	$: {
@@ -31,6 +32,9 @@
 		<input type="password" bind:value={password} name="password" placeholder="Password" required />
 		<input type="password" bind:value={passwordConfirm} name="passwordConfirm" placeholder="Confirm Password" required />
 	</div>
+	{#if form}
+		<div class="error">{form}</div>
+	{/if}
 	<Button {disabled} width="block" type="submit">Sign Up</Button>
 	<!-- <button>Sign Up</button> -->
 	<div>
