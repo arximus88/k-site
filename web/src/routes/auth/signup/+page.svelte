@@ -1,6 +1,6 @@
 <script>
 	import { applyAction, enhance } from '$app/forms';
-	import { pb } from '$lib/pocketbase';
+	import { pb } from '$lib/pocketbase.js';
 	import Button from '$lib/components/Button.svelte';
 
 	let email = '';
