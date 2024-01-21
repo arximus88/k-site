@@ -31,7 +31,8 @@
 		box-sizing: border-box;
 		border-radius: 24px;
 		background-color: #000000;
-		overflow: hidden;
+		overflow: auto;
+		scrollbar-width: none;
 		border-color: rgba(240, 248, 255, 0.256);
 		border-style: solid;
 		border-width: 2px;
@@ -53,6 +54,7 @@
 		main {
 			height: 100vh;
 			border-radius: 0px;
+			border-style: none;
 		}
 	}
 </style>

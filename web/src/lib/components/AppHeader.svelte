@@ -12,11 +12,16 @@
 
 <style>
 	.app-header {
+		position: sticky;
+		top: 0;
+		width: 100%;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 10px;
-        background-color: rgba(240, 248, 255, 0.12);
+		padding: 16px;
+		background-color: rgba(38, 38, 38, 0.952);
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		z-index: 1;
 	}
 	.back-button {
 		display: block;

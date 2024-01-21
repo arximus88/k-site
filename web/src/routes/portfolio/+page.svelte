@@ -2,9 +2,9 @@
 	import AppHeader from '$lib/components/AppHeader.svelte';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	export let data;
-	const records = data.records;
-	console.log(records);
-	let projects1 = data.items.sort((a, b) => a.order - b.order);
+	const projects = data.records;
+	// console.log(projects);
+
 </script>
 
 <svelte:head>
@@ -18,7 +18,7 @@
 
 <section class="page-container">
 	<div class="projects">
-		{#each projects1 as project}
+		{#each projects as project}
 			<ProjectCard
 				folder={project.folder}
 				title={project.title}
@@ -34,7 +34,11 @@
 </section>
 
 <style>
+	.page-container {
+		padding: 0px 12px;
+	}
 	.projects {
+		overflow: auto;
 		padding-top: 32px;
 		display: grid;
 		gap: 24px;

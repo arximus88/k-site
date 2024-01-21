@@ -1,3 +1,4 @@
+<!-- Tag.svelte Component -->
 <script lang="ts">
 	export let tag = '';
 </script>
