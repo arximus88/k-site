@@ -195,10 +195,8 @@ page-container {
 }
 
 .project-content {
-	display: grid;
-	grid-template-columns: 1fr 320px;
-	grid-gap: 2rem;
-	margin: 2rem 0;
+	padding: 0px 16px;
+	margin: 24px 0;
 }
 
 pre {
