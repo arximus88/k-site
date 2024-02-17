@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ua">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Kharchenko Minecraft</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link
@@ -24,7 +24,9 @@
         padding: 20px;
         border-bottom: 4px solid #263d22; /* Grass block side color */
       }
-
+      h2 {
+        color: #569b43;
+      }
       p,
       ul {
         font-family: Arial, sans-serif; /* More readable font for longer texts */
@@ -51,7 +53,7 @@
       ul {
         padding: 0;
       }
-      button {
+      .green-button {
         color: #fff;
         border: 2px solid #3d3938;
         box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25), inset 0 6px 0 #86d562,
@@ -59,11 +61,11 @@
         text-shadow: 0 1px 0 #2a631c;
         outline: 0;
         background-color: #3c8527;
-        font-size: 18px;
+        font-size: 14px;
         letter-spacing: 0.03em;
         line-height: 16px;
-        height: 52px;
-        min-width: 190px;
+        height: 32px;
+        min-width: 128px;
         text-transform: uppercase;
         text-align: center;
         margin-left: 5px;
@@ -72,7 +74,12 @@
         font-style: normal;
         font-weight: 700;
       }
-      button:hover {
+
+      .block-content {
+        margin-top: 32px;
+      }
+
+      .green-button:hover {
         color: #fff;
         background: linear-gradient(
             0deg,
@@ -83,42 +90,149 @@
         box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25), inset 0 6px 0 #86d562,
           inset 0 -6px 0 #2a641c;
       }
+
+      .tab-container {
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .tabs {
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      .tab-button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        color: white;
+      }
+
+      .tab-button:hover {
+        background-color: #777;
+      }
+
+      /* Style the active/current tab */
+      .tab-button.active {
+        background-color: #555;
+      }
+
+      .tab-content {
+        padding: 6px 12px;
+      }
+
+      .small-text {
+        font-size: 0.8em;
+      }
     </style>
   </head>
 
   <body>
     <h1>Medcraft Server: Prepare to die Edition</h1>
-    <p>Here are the servers you can join:</p>
-    <ul>
-      <li>
-        Bedrock, Android, iOS (45.131.182.91:19132)
-        <button onclick="copyLink('45.131.182.91:19132', this)">
-          Копіювати
-        </button>
-        <p>
-          Якщо знадобиться:
-          <a href=">https://aka.ms/remoteconnect">aka.ms/remoteconnect</a>
-        </p>
-      </li>
-      <li>
-        Vanilla/Java Edition (45.131.182.91:25565)
-        <button onclick="copyLink('45.131.182.91:25565', this)">
-          Копіювати
-        </button>
-        <p>
-          Поміняти скін онлайн можна на сайті Minecraft.net:
-          <a href="https://www.minecraft.net/en-us/msaprofile/mygames/editskin"
-            >Change Skin</a
-          >
-        </p>
-      </li>
-    </ul>
-    <p>Here are some other useful links:</p>
-    <ul>
-      <li><a href="http://kharchenko.work:23333">Admin Console</a></li>
-      <li><a href="http://kharchenko.work:8123">Web Map</a></li>
-    </ul>
+    <div class="block-content">
+      <h2>Як приєднатись?</h2>
+      <div class="tab-container">
+        <div class="tabs">
+          <button
+            class="tab-button active"
+            onclick="openTab(event, 'platforms')">
+            Vanilla/Java Edition
+          </button>
+          <button class="tab-button" onclick="openTab(event, 'features')">
+            Bedrock, Android, iOS
+          </button>
+        </div>
+
+        <div id="platforms" class="tab-content">
+          45.131.182.91:25565
+          <button
+            class="green-button"
+            onclick="copyLink('45.131.182.91:25565', this)">
+            Копіювати
+          </button>
+          <p>
+            Поміняти скін онлайн можна на сайті Minecraft.net:
+            <a
+              href="https://www.minecraft.net/en-us/msaprofile/mygames/editskin"
+              >Change Skin</a
+            >
+          </p>
+        </div>
+
+        <div id="features" class="tab-content" style="display: none">
+          45.131.182.91:19132
+          <button
+            class="green-button"
+            onclick="copyLink('45.131.182.91:19132', this)">
+            Копіювати
+          </button>
+          <p>
+            Якщо знадобиться:
+            <a href=">https://aka.ms/remoteconnect">aka.ms/remoteconnect</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="block-content">
+      <h2>Додаткові ресурси:</h2>
+      <ul>
+        <li><a href="http://kharchenko.work:23333">Admin Console</a></li>
+        <li><a href="http://kharchenko.work:8123">Web Map</a></li>
+      </ul>
+    </div>
+    <div class="block-content">
+      <h2>Hall of Shame</h2>
+      <div id="death-counts"></div>
+    </div>
+
     <script>
+      function openTab(evt, tabName) {
+        // Get all elements with class="tab-content" and hide them
+        let tabcontent = document.getElementsByClassName("tab-content");
+        for (let i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+
+        // Get all elements with class="tab-button" and remove the class "active"
+        let tabbuttons = document.getElementsByClassName("tab-button");
+        for (let i = 0; i < tabbuttons.length; i++) {
+          tabbuttons[i].className = tabbuttons[i].className.replace(
+            " active",
+            ""
+          );
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+
+      fetch("./death_counts.json")
+        .then((response) => response.json())
+        .then((data) => {
+          // Convert the object to an array of [player, deathCount] pairs
+          const deathArray = Object.entries(data);
+          // Sort the array by death count in descending order
+          deathArray.sort((a, b) => b[1] - a[1]);
+
+          // Create a list element for each player and append it to the div
+          const list = document.createElement("ul");
+          deathArray.forEach(([player, count]) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = `${player} died ${count} times`;
+            list.appendChild(listItem);
+          });
+
+          document.getElementById("death-counts").appendChild(list);
+        })
+        .catch((error) => console.error("Error loading death counts:", error));
+
       function copyLink(text, btn) {
         const originalText = btn.textContent;
         navigator.clipboard.writeText(text).then(

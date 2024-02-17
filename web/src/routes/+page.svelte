@@ -16,7 +16,7 @@
 	<div class="card contact">Contact Me</div>
 	<AppShortcut icon="app_books" title="Portfolio" />
 	<Folder title="Tools">
-		<AppShortcut icon="app_cats" title="App 1" />
+		<AppShortcut icon="app_cats" title="Minecraft" />
 		<AppShortcut icon="default_01" title="App 2" />
 		<AppShortcut icon="default_02" title="App 3" />
 		<AppShortcut icon="default_06" title="App 4" />
