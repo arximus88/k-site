@@ -2,7 +2,7 @@
 <html lang="ua">
   <head>
     <meta charset="UTF-8" />
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="noindex, nofollow" />
     <title>Medcraft</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link
@@ -138,11 +138,26 @@
         height: 64px;
         margin: 0 auto;
       }
+      .zombie {
+        background-image: url("zombie_128.png");
+        background-size: contain;
+        width: 64px;
+        height: 64px;
+        margin: 0 auto;
+      }
+      .sidebyside {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
     </style>
   </head>
 
   <body>
-    <h1>Medcraft Server: Prepare to die Edition</h1>
+    <h1>
+      Medcraft Server: <br />
+      Prepare to die Edition
+    </h1>
     <div class="block-content">
       <h2>Як приєднатись?</h2>
       <div class="tab-container">
@@ -195,20 +210,27 @@
       </ul>
     </div>
     <div class="block-content">
-      <div class="creeper"></div>
-      <h2>Hall of Shame</h2>
-      <div id="death-counts"></div>
+      <div class="sidebyside">
+        <div class="block-part">
+          <div class="creeper"></div>
+          <h2>Hall of Shame</h2>
+          <div id="death-counts"></div>
+        </div>
+        <div class="block-part">
+          <div class="zombie"></div>
+          <h2>Our Champions</h2>
+          <div id="kills-counts"></div>
+        </div>
+      </div>
     </div>
 
     <script>
+      // Open the tab and highlight the button
       function openTab(evt, tabName) {
-        // Get all elements with class="tab-content" and hide them
         let tabcontent = document.getElementsByClassName("tab-content");
         for (let i = 0; i < tabcontent.length; i++) {
           tabcontent[i].style.display = "none";
         }
-
-        // Get all elements with class="tab-button" and remove the class "active"
         let tabbuttons = document.getElementsByClassName("tab-button");
         for (let i = 0; i < tabbuttons.length; i++) {
           tabbuttons[i].className = tabbuttons[i].className.replace(
@@ -216,12 +238,11 @@
             ""
           );
         }
-
-        // Show the current tab, and add an "active" class to the button that opened the tab
         document.getElementById(tabName).style.display = "block";
         evt.currentTarget.className += " active";
       }
 
+      // Load the death counts from the JSON file
       fetch("./death_counts.json")
         .then((response) => response.json())
         .then((data) => {
@@ -229,7 +250,6 @@
           const deathArray = Object.entries(data);
           // Sort the array by death count in descending order
           deathArray.sort((a, b) => b[1] - a[1]);
-
           // Create a list element for each player and append it to the div
           const list = document.createElement("ul");
           deathArray.forEach(([player, count]) => {
@@ -237,11 +257,30 @@
             listItem.textContent = `${player} died ${count} times`;
             list.appendChild(listItem);
           });
-
           document.getElementById("death-counts").appendChild(list);
         })
         .catch((error) => console.error("Error loading death counts:", error));
 
+      // Load the Killers from the JSON file
+      fetch("./killer_counts.json")
+        .then((response) => response.json())
+        .then((data) => {
+          // Convert the object to an array of [player, deathCount] pairs
+          const deathArray = Object.entries(data);
+          // Sort the array by death count in descending order
+          deathArray.sort((a, b) => b[1] - a[1]);
+          // Create a list element for each player and append it to the div
+          const list = document.createElement("ul");
+          deathArray.forEach(([player, count]) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = `${player} killed ${count} times`;
+            list.appendChild(listItem);
+          });
+          document.getElementById("kills-counts").appendChild(list);
+        })
+        .catch((error) => console.error("Error loading kills counts:", error));
+
+      // Copy the text to the clipboard function
       function copyLink(text, btn) {
         const originalText = btn.textContent;
         navigator.clipboard.writeText(text).then(
