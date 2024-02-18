@@ -21,7 +21,7 @@ def process_log_file(file_path):
         for line in file:
             match = death_pattern.search(line)
             if match:
-                death_type, killer_info = match.groups()
+                player, death_type, killer_info = match.groups()
                 # Check if killer_info is not empty and if death by entity is confirmed
                 if killer_info and "by" in death_type:
                     # Extract just the killer entity, which is typically the last word in the killer_info
@@ -34,7 +34,7 @@ def process_gzipped_log_file(file_path):
         for line in file:
             match = death_pattern.search(line)
             if match:
-                death_type, killer_info = match.groups()
+                player, death_type, killer_info = match.groups()
                 # Check if killer_info is not empty and if death by entity is confirmed
                 if killer_info and "by" in death_type:
                     # Extract just the killer entity, which is typically the last word in the killer_info
