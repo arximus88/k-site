@@ -46,6 +46,8 @@ def process_gzipped_log_file(file_path):
 for file_name in os.listdir(log_dir_path):
     if file_name.endswith('.log'):
         process_log_file(os.path.join(log_dir_path, file_name))
+    elif file_name.endswith('.gz'):
+        process_gzipped_log_file(os.path.join(log_dir_path, file_name))
 
 # Convert the counter to a dictionary and then dump to a JSON file
 with open('/var/www/kharchenko.work/html/minecraft/killer_counts.json', 'w') as json_file:
