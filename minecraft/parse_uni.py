@@ -52,7 +52,7 @@ for killer, count in killer_counts.most_common():
     print(f"{killer} - {count} kills")
 
 # Save results to JSON files
-with open('/var/www/kharchenko.work/html/minecraft/player_deaths.json', 'w') as json_file:
+with open('/var/www/kharchenko.work/html/minecraft/death_counts.json', 'w') as json_file:
     json.dump(dict(player_deaths), json_file, indent=4)
 
 with open('/var/www/kharchenko.work/html/minecraft/killer_counts.json', 'w') as json_file:
