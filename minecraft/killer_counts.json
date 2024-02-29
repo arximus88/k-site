@@ -1,8 +1,18 @@
 {
-    "Skeleton": 7,
-    "Creeper": 2,
-    "Zombie": 16,
-    "Pillager": 1,
-    "Spider": 1,
-    "Enderman": 1
+    "Gravity Force": 23,
+    "Skeleton": 39,
+    "Creeper": 15,
+    "Zombie": 46,
+    "Pillager": 4,
+    "Spider": 5,
+    "Enderman": 12,
+    "Zombified Villager": 2,
+    "Lava": 7,
+    "Piglin": 7,
+    "Iron Golem": 2,
+    "Ravager": 1,
+    "Vindicator": 2,
+    "Panda": 1,
+    "Hoglin": 2,
+    "Wither": 2
 }
