@@ -29,13 +29,13 @@
 		max-width: 360px;
 		margin: 0 auto;
 		box-sizing: border-box;
-		border-radius: 24px;
-		background-color: #000000;
+		border-radius: 40px;
 		overflow: auto;
 		scrollbar-width: none;
-		border-color: rgba(240, 248, 255, 0.256);
+		border-color: rgba(240, 248, 255, 0.08);
 		border-style: solid;
-		border-width: 2px;
+		border-width: 8px;
+		box-shadow: 0 0 64px 0 rgba(255, 255, 255, 0.08);
 	}
 
 	footer {

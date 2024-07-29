@@ -3,6 +3,7 @@
 	import ClockWidget from '$lib/components/ClockWidget.svelte';
 	import AppShortcut from '$lib/components/AppShortcut.svelte';
 	import Folder from '$lib/components/Folder.svelte';
+	import VideoBackground from '$lib/components/Video-background.svelte';
 </script>
 
 <svelte:head>
@@ -28,6 +29,7 @@
 	<AppShortcut icon="app_auth" title="Auth" />
 	<AppShortcut icon="app_crud" title="CRUD" />
 	<AppShortcut title="Icons" />
+	<VideoBackground />
 </div>
 
 <style>

@@ -27,11 +27,10 @@
 
 <style>
 	.clock-widget {
-		font-size: 32px;
 		text-align: center;
 		padding: 20px;
-		color: var(--primary-basic);
-		border-radius: 16px;
+		color: var(--caption-basic);
+		border-radius: 24px;
 		border-color: var(--caption-basic);
 		border-width: 2px;
 		border-style: solid;
@@ -39,11 +38,12 @@
 	}
 
 	.current-date {
-		font-size: 20px;
+		font-size: 16px;
 		margin-bottom: 8px;
 	}
 
 	.current-time {
-		font-size: 32px;
+		font-size: 64px;
+		font-weight: bold;
 	}
 </style>

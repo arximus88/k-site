@@ -23,7 +23,7 @@
 	.title {
 		margin-top: 8px;
 		text-align: center;
-		color: var(--primary-basic);
+		color: var(--secondary-basic);
 	}
 
 	.app-icon {
